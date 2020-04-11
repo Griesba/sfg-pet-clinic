@@ -35,7 +35,7 @@ public class DataLoader implements CommandLineRunner {
         owner.setLastName("Helba");
         ownerService.save(owner2);
 
-        System.out.println("loading owners");
+        System.out.println("loading owners size" + ownerService.findAll().size());
 
         Vet vet = new Vet();
         vet.setId(1L);
