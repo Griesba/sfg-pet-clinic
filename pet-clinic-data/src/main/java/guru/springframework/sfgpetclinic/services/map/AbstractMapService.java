@@ -20,7 +20,6 @@ public abstract class AbstractMapService <T, ID> {
         map.entrySet().removeIf(entry -> entry.getValue().equals(object));
     }
 
-
     T save(ID id, T object) {
         map.put(id, object);
         return map.get(id);
