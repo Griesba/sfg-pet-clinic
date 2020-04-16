@@ -5,8 +5,8 @@ import guru.springframework.sfgpetclinic.model.Pet;
 import guru.springframework.sfgpetclinic.model.PetType;
 import guru.springframework.sfgpetclinic.model.Vet;
 import guru.springframework.sfgpetclinic.services.PetTypeService;
-import guru.springframework.sfgpetclinic.services.map.OwnerServiceMap;
-import guru.springframework.sfgpetclinic.services.map.VetServiceMap;
+import guru.springframework.sfgpetclinic.services.map.OwnerServiceMapImpl;
+import guru.springframework.sfgpetclinic.services.map.VetServiceMapImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +15,11 @@ import java.time.LocalDate;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final OwnerServiceMap ownerService;
-    private final VetServiceMap vetService;
+    private final OwnerServiceMapImpl ownerService;
+    private final VetServiceMapImpl vetService;
     private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerServiceMap ownerService, VetServiceMap vetService, PetTypeService petTypeService) {
+    public DataLoader(OwnerServiceMapImpl ownerService, VetServiceMapImpl vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
