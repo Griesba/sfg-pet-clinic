@@ -1,36 +1,69 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
 import guru.springframework.sfgpetclinic.model.Owner;
+import guru.springframework.sfgpetclinic.model.Pet;
+import guru.springframework.sfgpetclinic.model.PetType;
 import guru.springframework.sfgpetclinic.model.Vet;
-import guru.springframework.sfgpetclinic.services.OwnerService;
-import guru.springframework.sfgpetclinic.services.VetService;
+import guru.springframework.sfgpetclinic.services.PetTypeService;
 import guru.springframework.sfgpetclinic.services.map.OwnerServiceMap;
 import guru.springframework.sfgpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerServiceMap ownerService;
     private final VetServiceMap vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerServiceMap ownerService, VetServiceMap vetService) {
+    public DataLoader(OwnerServiceMap ownerService, VetServiceMap vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
+        PetType petType = new PetType();
+        petType.setName("Dog");
+
+        PetType petTypeCat = new PetType();
+        petTypeCat.setName("cat");
+
+
         Owner owner = new Owner();
         owner.setFirstName("Lino");
         owner.setLastName("Ventura");
+        owner.setAddress("123 big Lenine");
+        owner.setCity("NewYork");
+        owner.setTelephone("245435");
+
+        Pet mikePet = new Pet();
+        mikePet.setName("roco");
+        mikePet.setPetType(petTypeCat);
+        mikePet.setBirthDate(LocalDate.now());
+        mikePet.setOwner(owner);
+        owner.getPets().add(mikePet);
+
         ownerService.save(owner);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Cedric");
         owner2.setLastName("Helba");
+        owner2.setTelephone("6235235");
+        owner2.setCity("Miamy");
+        owner2.setAddress("123 bitbucket");
+
+        Pet cedricPet = new Pet();
+        cedricPet.setName("just cat");
+        cedricPet.setOwner(owner2);
+        cedricPet.setBirthDate(LocalDate.now());
+        cedricPet.setPetType(petTypeCat);
+        owner2.getPets().add(cedricPet);
         ownerService.save(owner2);
 
         System.out.println("loading owners size" + ownerService.findAll().size());
