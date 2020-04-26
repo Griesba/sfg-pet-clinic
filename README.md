@@ -9,7 +9,7 @@ pet clinic web app
 
 
 # dependency injection vs IoC
-  dependency injection is class composition. You compose your classes with depency injection in mind.
+  dependency injection is class composition. You compose your classes with dependency injection in mind.
   IoC is the runtime environment of your code. ie Springframework's IoC container. Spring is in control of the injection of dependency.
 
 
