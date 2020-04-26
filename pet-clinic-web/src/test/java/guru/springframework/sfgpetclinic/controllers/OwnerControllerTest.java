@@ -24,9 +24,6 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/*import static org.hamcrest.Matchers.hasProperty;
-import static org.hamcrest.Matchers.is;*/
-
 
 @ExtendWith(MockitoExtension.class)
 class OwnerControllerTest {
@@ -49,14 +46,14 @@ class OwnerControllerTest {
         owners = new HashSet<>();
         owners.add(ventura);
         owners.add(tarantino);
-//lightweight setring
+//lightweight starting
         mockMvc = MockMvcBuilders
                 .standaloneSetup(ownerController).build();
     }
 
     @Test
     void listOwners() throws Exception {
-        mockMvc.perform(get("/owners"))
+        mockMvc.perform(get("/owners/find"))
                 .andExpect(status().is(200))
                 .andExpect(view().name("owners/findOwners"))
                 .andExpect(model().attributeExists("owner"));
@@ -84,11 +81,11 @@ class OwnerControllerTest {
 
     @Test
     void performFindByEmptyLastNameReturnMany() throws Exception {
-        when(ownerService.findAllByLastNameLike(anyString())).thenReturn(Arrays.asList(ventura));
+        when(ownerService.findAllByLastNameLike(anyString())).thenReturn(new ArrayList<>(owners));
         mockMvc.perform(get("/owners").param("lastName", ""))
                 .andExpect(status().isOk())
                 .andExpect(view().name("owners/ownersList"))
-                .andExpect(model().attribute("selections", hasSize(1)));
+                .andExpect(model().attribute("selections", hasSize(2)));
     }
 
     @Test
