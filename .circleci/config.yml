@@ -1,5 +1,9 @@
 version: 2.1
 
+build:
+  docker:
+    -image: circleci/openjdk:11-browsers-legacy
+
 orbs:
   maven: circleci/maven@0.0.12
 
