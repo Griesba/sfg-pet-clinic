@@ -5,13 +5,14 @@
     <groupId>guru.springframework</groupId>
     <version>0.0.3-SNAPSHOT</version>
   </parent>
+
   <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>pet-clinic-data</artifactId>
 
   <properties>
     <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
   </properties>
-
-  <artifactId>pet-clinic-data</artifactId>
 
   <dependencies>
     <dependency>
@@ -39,13 +40,9 @@
       <scope>test</scope>
       <exclusions>
         <exclusion>
-          <groupId>org.junit.vintage</groupId>
-          <artifactId>junit-vintage-engine</artifactId>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
         </exclusion>
-          <exclusion>
-            <artifactId>junit</artifactId>
-            <groupId>junit</groupId>
-          </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -61,6 +58,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
+      <version>2.22.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -68,15 +66,6 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
-        <configuration>
-          <source>11</source>  <!-- same as <java.version> -->
-          <target>11</target>    <!-- same as <java.version> -->
-        </configuration>
-      </plugin>
-<!--      <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <executions>
@@ -86,8 +75,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin>-->
+      </plugin>
     </plugins>
   </build>
-
 </project>
