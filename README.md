@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/Griesba/sfg-pet-clinic.svg?style=svg)](https://app.circleci.com/pipelines/github/Griesba/sfg-pet-clinic)
+[![codecov](https://codecov.io/gh/Griesba/sfg-pet-clinic/branch/master/graph/badge.svg)](https://codecov.io/gh/Griesba/sfg-pet-clinic)
 
 # sfg-pet-clinic
 pet clinic web app
