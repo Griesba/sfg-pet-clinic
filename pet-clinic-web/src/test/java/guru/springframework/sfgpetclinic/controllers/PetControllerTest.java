@@ -73,7 +73,7 @@ class PetControllerTest {
     @Test
     void performPostPetType() throws Exception {
         when(ownerService.findById(any())).thenReturn(owner);
-       // when(petTypeService.findAll()).thenReturn(petTypes);
+        // when(petTypeService.findAll()).thenReturn(petTypes);
 
         mockMvc.perform(post("/owners/1/pets/new"))
                 .andExpect(status().is3xxRedirection())

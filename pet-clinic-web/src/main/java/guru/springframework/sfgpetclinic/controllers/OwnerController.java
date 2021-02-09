@@ -26,7 +26,7 @@ public class OwnerController {
     }
 
     @RequestMapping("/find")
-    public String findOwners(Model model){
+    public String findOwners(Model model) {
         model.addAttribute("owner", Owner.builder().build());
         return "owners/findOwners";
     }
@@ -67,7 +67,7 @@ public class OwnerController {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
         } else {
-            Owner savedOwner =  ownerService.save(owner);
+            Owner savedOwner = ownerService.save(owner);
             return "redirect:/owners/" + savedOwner.getId();
         }
     }

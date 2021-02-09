@@ -13,7 +13,7 @@ import javax.persistence.MappedSuperclass;
 @NoArgsConstructor
 
 @MappedSuperclass// we don't want it to be created in DB
-public class Person  extends BaseEntity{
+public class Person extends BaseEntity {
     @Column(name = "first_name")// this is redundant as hibernate used snake case by defautl
     private String firstName;
 

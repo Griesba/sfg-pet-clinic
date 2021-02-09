@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "pets")
-public class Pet extends BaseEntity{
+public class Pet extends BaseEntity {
     private String name;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -29,7 +29,7 @@ public class Pet extends BaseEntity{
         this.birthDate = birthDate;
         this.petType = petType;
         this.owner = owner;
-        if (visits != null){
+        if (visits != null) {
             this.visits = visits;
         }
     }

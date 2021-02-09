@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Service
 @Profile({"default", "map"})
-public class OwnerMapServiceImpl extends AbstractMapService<Owner, Long>  implements OwnerService {
+public class OwnerMapServiceImpl extends AbstractMapService<Owner, Long> implements OwnerService {
     private PetTypeService petTypeService;
     private PetService petService;
 
@@ -29,7 +29,7 @@ public class OwnerMapServiceImpl extends AbstractMapService<Owner, Long>  implem
 
     @Override
     public void deleteById(Long id) {
-    super.deleteById(id);
+        super.deleteById(id);
     }
 
     @Override
